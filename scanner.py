@@ -1,9 +1,11 @@
 import socket
 
-target = "127.0.0.1"
+target = input("Enter target IP: ")
 
-print(f"Scanning target: {target}")
+print(f"\nScanning target: {target}")
 print("-" * 30)
+
+open_ports = 0
 
 for port in range(20, 100):
 
@@ -15,8 +17,10 @@ for port in range(20, 100):
 
     if result == 0:
         print(f"Port {port} is OPEN")
+        open_ports += 1
 
     s.close()
 
 print("-" * 30)
+print(f"Total Open Ports Found: {open_ports}")
 print("Scan completed.")
